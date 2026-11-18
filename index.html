@@ -3,147 +3,278 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>IEEE Task Force on Fuzzy Control Theory and Applications</title>
-<meta name="description" content="IEEE CIS Task Force on Fuzzy Control Theory and Applications">
-<meta name="keywords" content="Takagi-Sugeno fuzzy systems, fuzzy model-based control, stability analysis, nonlinear control, observer design, applications, Tufan Kumbasar, Anh-Tu Nguyen, Pedro Henrique Coutinho">
-<style type="text/css">
-body {
-    margin: 0em .3em 1em .3em;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 10pt;
-    color: #0a3080;
-    padding-left: 1em;
-    padding-right: 1.5em;
-    max-width: 1100px;
+<title>IEEE CIS Task Force on Fuzzy Control Theory and Applications</title>
+<meta name="description" content="IEEE CIS Task Force on Fuzzy Control Theory and Applications, part of the Fuzzy Systems Technical Committee of the IEEE Computational Intelligence Society.">
+<meta name="keywords" content="fuzzy control, Takagi-Sugeno fuzzy systems, fuzzy model-based control, stability analysis, nonlinear control, observer design, IEEE CIS task force">
+<link rel="icon" href="logo.png">
+<style>
+:root {
+  --navy: #0C447C;
+  --blue: #185FA5;
+  --sky: #E6F1FB;
+  --ink: #1d2733;
+  --muted: #5b6673;
+  --line: #dfe5ec;
+  --bg: #ffffff;
+  --soft: #f5f8fb;
 }
-p { margin-top: .4em; margin-bottom: 1em; text-align: justify; }
-h1 { margin-top: 1em; margin-bottom: .3em; font-size: 15pt; font-weight: bold; font-style: italic; }
-h2 { margin-top: 1em; margin-bottom: .4em; font-size: 12pt; font-weight: bold; }
-h3 { margin-top: .6em; margin-bottom: .3em; font-size: 1em; font-weight: bold; }
-a { color: #0a3080; }
-a:hover { color: #0f70c0; }
-a img { border: none; }
-a.strong { font-weight: bold; }
-ul { margin-top: .3em; }
-li { margin-bottom: .3em; }
-table.members { width: 100%; border-collapse: collapse; }
-table.members td { border: 1px solid #9098a8; padding: .4em .5em; vertical-align: top; width: 50%; }
-.footer { margin-top: 2em; color: #092051; font-size: .8em; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+body { margin: 0; font-family: "Segoe UI", Arial, Helvetica, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.6; font-size: 16px; }
+a { color: var(--blue); }
+a:hover { color: var(--navy); }
+
+header.top { background: var(--navy); color: #fff; }
+header.top .wrap { display: flex; align-items: center; gap: 20px; padding: 22px 24px; }
+header.top img { height: 64px; background: #fff; border-radius: 8px; padding: 6px 10px; }
+header.top .kicker { font-size: 13px; color: #B5D4F4; margin: 0; }
+header.top h1 { font-size: 26px; font-weight: 600; margin: 2px 0 0; line-height: 1.25; }
+
+nav.menu { background: var(--blue); position: sticky; top: 0; z-index: 10; }
+nav.menu .wrap { display: flex; gap: 4px; padding: 0 16px; overflow-x: auto; }
+nav.menu a { color: #E6F1FB; text-decoration: none; font-size: 15px; padding: 12px 12px; white-space: nowrap; border-bottom: 3px solid transparent; }
+nav.menu a:hover, nav.menu a.active { color: #fff; border-bottom-color: #fff; }
+
+.wrap { max-width: 1040px; margin: 0 auto; }
+main .wrap { padding: 28px 24px 8px; }
+section { margin-bottom: 44px; }
+h2 { color: var(--blue); font-size: 22px; font-weight: 600; margin: 0 0 14px; }
+h2 .count { font-size: 14px; font-weight: 400; color: var(--muted); margin-left: 8px; }
+h3 { font-size: 16px; font-weight: 600; margin: 22px 0 10px; color: var(--ink); }
+p { margin: 0 0 12px; }
+
+.cfp { display: flex; gap: 14px; align-items: flex-start; background: var(--sky); border: 1px solid #B5D4F4; border-radius: 10px; padding: 16px 18px; margin-bottom: 36px; color: var(--navy); }
+.cfp .icon { flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+.cfp strong { display: block; font-size: 16px; }
+.cfp p { margin: 2px 0 0; font-size: 15px; }
+
+.officers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.card { border: 1px solid var(--line); border-radius: 12px; padding: 22px 18px; text-align: center; background: #fff; }
+.avatar { width: 112px; height: 112px; border-radius: 50%; margin: 0 auto 12px; background: var(--sky); color: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: 600; overflow: hidden; }
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+.card .role { display: inline-block; font-size: 13px; color: var(--navy); background: var(--sky); border-radius: 20px; padding: 2px 12px; margin-bottom: 8px; }
+.card .name { font-size: 17px; font-weight: 600; margin: 0; }
+.card .name a { color: var(--ink); text-decoration: none; }
+.card .name a:hover { color: var(--blue); text-decoration: underline; }
+.card .aff { font-size: 14px; color: var(--muted); margin: 2px 0 0; }
+.past { margin-top: 14px; font-size: 15px; color: var(--muted); }
+
+.members { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); column-gap: 28px; border-top: 1px solid var(--line); }
+.member { padding: 11px 0; border-bottom: 1px solid var(--line); }
+.member .n { font-weight: 600; }
+.member .a { color: var(--muted); font-size: 14px; }
+.member .e { font-size: 14px; }
+.member .e a { text-decoration: none; }
+.member .e a:hover { text-decoration: underline; }
+.flags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; }
+.flags span { font-size: 13px; background: var(--soft); border: 1px solid var(--line); border-radius: 20px; padding: 2px 11px; color: var(--muted); }
+
+.year { display: grid; grid-template-columns: 80px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
+.year:last-child { border-bottom: 1px solid var(--line); }
+.year .y { font-size: 20px; font-weight: 600; color: var(--navy); }
+.year ul { list-style: none; margin: 0; padding: 0; }
+.year li { display: flex; gap: 12px; align-items: baseline; padding: 5px 0; }
+.tag { flex: none; font-size: 12px; font-weight: 600; border-radius: 6px; padding: 2px 9px; min-width: 104px; text-align: center; }
+.t-session { background: #E6F1FB; color: #0C447C; }
+.t-track { background: #E1F5EE; color: #085041; }
+.t-issue { background: #EEEDFE; color: #3C3489; }
+.t-conf { background: #FAECE7; color: #712B13; }
+.t-plan { background: #FAEEDA; color: #633806; }
+
+footer { background: var(--soft); border-top: 1px solid var(--line); margin-top: 20px; }
+footer .wrap { padding: 20px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font-size: 14px; color: var(--muted); }
+
+@media (max-width: 640px) {
+  header.top .wrap { flex-direction: column; align-items: flex-start; }
+  header.top h1 { font-size: 21px; }
+  .year { grid-template-columns: 1fr; gap: 4px; }
+  .year li { flex-direction: column; gap: 4px; }
+}
 </style>
 </head>
-
 <body>
-<img src="logo.png" alt="IEEE CIS Task Force on Fuzzy Control Theory and Applications" style="margin-top: 1em; margin-bottom: 1em" height="100">
 
-<h1>IEEE Task Force on Fuzzy Control Theory and Applications</h1>
+<header class="top">
+  <div class="wrap">
+    <img src="logo.png" alt="IEEE Computational Intelligence Society logo">
+    <div>
+      <p class="kicker">IEEE Computational Intelligence Society · Fuzzy Systems Technical Committee</p>
+      <h1>Task Force on Fuzzy Control Theory and Applications</h1>
+    </div>
+  </div>
+</header>
 
-<h2>Task force officers</h2>
+<nav class="menu" aria-label="Sections">
+  <div class="wrap">
+    <a href="#about">About</a>
+    <a href="#officers">Officers</a>
+    <a href="#members">Members</a>
+    <a href="#activities">Activities</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
-<h3>Chair</h3>
-<p>
-<a class="strong" href="https://akademi.itu.edu.tr/en/kumbasart/">Tufan Kumbasar</a>, Istanbul Technical University, Türkiye
-</p>
+<main>
+<div class="wrap">
 
-<h3>Vice-chairs</h3>
-<p>
-<a class="strong" href="https://sites.google.com/view/anh-tu-nguyen">Anh-Tu Nguyen</a>, Université Polytechnique Hauts-de-France, France<br>
-<a class="strong" href="https://www.sites.google.com/view/phscoutinho/">Pedro Henrique Silva Coutinho</a>, Rio de Janeiro State University (UERJ), Brazil
-</p>
+  <div class="cfp" role="note">
+    <div class="icon" aria-hidden="true">!</div>
+    <div>
+      <strong>Call for papers: FUZZ-IEEE 2027, Sydney, Australia</strong>
+      <p>Special session "Recent Advances in Fuzzy Model-Based Control". Submission deadline and link will be announced here.</p>
+    </div>
+  </div>
 
-<h3>Past chairs</h3>
-<p>
-<a class="strong" href="http://lendek.net/home.php">Zs&oacute;fia Lendek</a> (2021&ndash;2026),
-<a class="strong" href="http://kguelton.free.fr">Kevin Guelton</a> (2018&ndash;2021)
-</p>
+  <section id="about">
+    <h2>About</h2>
+    <p>The main goal of this Task Force is to promote the understanding, research, development, and education in fuzzy control, both theory and applications. It focuses on the dissemination of recent advances in fuzzy control in industry and academia, and offers an opportunity for researchers and practitioners to identify new promising research directions.</p>
+    <p>The Task Force belongs to the Fuzzy Systems Technical Committee (FSTC) of the IEEE Computational Intelligence Society (CIS). It was established in 2011.</p>
+  </section>
 
-<h2>Organization</h2>
-<p>
-This task force belongs to the Fuzzy Systems Technical Committee (FSTC) of the Computational Intelligence Society (CIS) of the Institute of Electrical and Electronics Engineers, Inc. (IEEE).</p>
+  <section id="officers">
+    <h2>Officers</h2>
+    <div class="officers">
+      <div class="card">
+        <div class="avatar"><img src="photos/kumbasar.jpg" alt="Tufan Kumbasar" onerror="this.parentNode.textContent='TK'"></div>
+        <span class="role">Chair</span>
+        <p class="name"><a href="https://akademi.itu.edu.tr/en/kumbasart/">Tufan Kumbasar</a></p>
+        <p class="aff">Istanbul Technical University, Türkiye</p>
+      </div>
+      <div class="card">
+        <div class="avatar"><img src="photos/nguyen.jpg" alt="Anh-Tu Nguyen" onerror="this.parentNode.textContent='AN'"></div>
+        <span class="role">Vice-Chair</span>
+        <p class="name"><a href="https://sites.google.com/view/anh-tu-nguyen">Anh-Tu Nguyen</a></p>
+        <p class="aff">Université Polytechnique Hauts-de-France, France</p>
+      </div>
+      <div class="card">
+        <div class="avatar"><img src="photos/coutinho.jpg" alt="Pedro Henrique Silva Coutinho" onerror="this.parentNode.textContent='PC'"></div>
+        <span class="role">Vice-Chair</span>
+        <p class="name"><a href="https://www.sites.google.com/view/phscoutinho/">Pedro Henrique Silva Coutinho</a></p>
+        <p class="aff">Rio de Janeiro State University (UERJ), Brazil</p>
+      </div>
+    </div>
+    <p class="past">Past chairs: <a href="http://lendek.net/home.php">Zsófia Lendek</a> (2021–2026), <a href="http://kguelton.free.fr">Kevin Guelton</a> (2018–2021)</p>
+  </section>
 
-<h2 id="aim">Objectives</h2>
-<p>
-The main goal of this Task Force is to promote the understanding, research, development, and education in Fuzzy Control, both theory and applications. Therefore, it focuses on the dissemination of recent advances in Fuzzy Control in industry and academia. It also offers an opportunity for researchers and practitioners to identify new promising research directions.</p>
+  <section id="members">
+    <h2>Members <span class="count">14 members from 11 countries</span></h2>
+    <div class="flags">
+      <span>Brazil</span><span>France</span><span>Germany</span><span>India</span><span>Japan</span><span>Mexico</span><span>Romania</span><span>Slovenia</span><span>Spain</span><span>Türkiye</span><span>United Kingdom</span>
+    </div>
+    <div class="members" id="member-list"></div>
+  </section>
 
-<h2 id="members">Task force members</h2>
-<table class="members">
-<tbody>
-<tr>
-  <td><b>Miguel Angel Bernal Reza</b>, ITSON Universidad, Mexico<br>
-      <a href="mailto:miguel.bernal@itson.edu.mx">miguel.bernal@itson.edu.mx</a></td>
-  <td><b>Saso Blazic</b>, University of Ljubljana, Slovenia<br>
-      <a href="mailto:saso.blazic@fe.uni-lj.si">saso.blazic@fe.uni-lj.si</a></td>
-</tr>
-<tr>
-  <td><b>Murali M. Bosukonda</b>, Indian Institute of Technology Kharagpur, India<br>
-      <a href="mailto:mohan@ee.iitkgp.ac.in">mohan@ee.iitkgp.ac.in</a></td>
-  <td><b>Pedro Henrique Silva Coutinho</b>, Rio de Janeiro State University (UERJ), Brazil<br>
-      <a href="mailto:phcoutinho@eng.uerj.br">phcoutinho@eng.uerj.br</a></td>
-</tr>
-<tr>
-  <td><b>Kevin Guelton</b>, CReSTIC EA3804, University of Reims Champagne-Ardenne, France<br>
-      <a href="mailto:kevin.guelton@univ-reims.fr">kevin.guelton@univ-reims.fr</a></td>
-  <td><b>Thierry Marie Guerra</b>, Université Polytechnique Hauts-de-France, Valenciennes, France<br>
-      <a href="mailto:guerra@univ-valenciennes.fr">guerra@univ-valenciennes.fr</a></td>
-</tr>
-<tr>
-  <td><b>Tufan Kumbasar</b>, Istanbul Technical University, Türkiye<br>
-      <a href="mailto:kumbasart@itu.edu.tr">kumbasart@itu.edu.tr</a></td>
-  <td><b>Hak-Keung Lam</b>, King's College London, UK<br>
-      <a href="mailto:hak-keung.lam@kcl.ac.uk">hak-keung.lam@kcl.ac.uk</a></td>
-</tr>
-<tr>
-  <td><b>Zs&oacute;fia Lendek</b>, Technical University of Cluj-Napoca, Romania<br>
-      <a href="mailto:zsofia.lendek@aut.utcluj.ro">zsofia.lendek@aut.utcluj.ro</a></td>
-  <td><b>Anh-Tu Nguyen</b>, Université Polytechnique Hauts-de-France, France<br>
-      <a href="mailto:Trananhtu.Nguyen@uphf.fr">Trananhtu.Nguyen@uphf.fr</a></td>
-</tr>
-<tr>
-  <td><b>Reinaldo Martinez Palhares</b>, Federal University of Minas Gerais, Brazil<br>
-      <a href="mailto:rpalhares@ufmg.br">rpalhares@ufmg.br</a></td>
-  <td><b>Antonio Sala</b>, Universitat Politècnica de València, Spain<br>
-      <a href="mailto:asala@upvnet.upv.es">asala@upvnet.upv.es</a></td>
-</tr>
-<tr>
-  <td><b>Horst Schulte</b>, HTW Berlin, Germany<br>
-      <a href="mailto:Horst.Schulte@HTW-Berlin.de">Horst.Schulte@HTW-Berlin.de</a></td>
-  <td><b>Jun Yoneyama</b>, Aoyama Gakuin University, Japan<br>
-      <a href="mailto:yoneyama@ee.aoyama.ac.jp">yoneyama@ee.aoyama.ac.jp</a></td>
-</tr>
-</tbody>
-</table>
+  <section id="activities">
+    <h2>Activities</h2>
 
-<h2 id="activities">Task force activities</h2>
+    <div class="year">
+      <div class="y">2027</div>
+      <ul>
+        <li><span class="tag t-plan">Planned</span><span>Special session "Recent Advances in Fuzzy Model-Based Control" at FUZZ-IEEE 2027, Sydney, Australia</span></li>
+        <li><span class="tag t-plan">Planned</span><span>Organization of the 13th International Conference on Control, Automation and Robotics (ICCAR 2027)</span></li>
+        <li><span class="tag t-plan">Planned</span><span>Organization of the national Turkish control conference (TOK 2027), Türkiye</span></li>
+      </ul>
+    </div>
 
-<h3>Planned activities (2027)</h3>
-<ul>
-<li>Special session on "Recent Advances in Fuzzy Model-Based Control" at FUZZ-IEEE 2027, Sydney, Australia</li>
-<li>Organization of the 13th International Conference on Control, Automation and Robotics (ICCAR 2027)</li>
-<li>Organization of the national Turkish control conference (TOK 2027), Türkiye</li>
-</ul>
+    <div class="year">
+      <div class="y">2026</div>
+      <ul>
+        <li><span class="tag t-track">Invited track</span><span>Open Invited Track 3-160 "Recent Advances in Fuzzy Model-Based Control", IFAC World Congress 2026, Busan, Republic of Korea · <a href="https://www.ifac2026.org/fairOnline.do?selAction=single_page&amp;SYSTEM_IDX=210&amp;FAIRMENU_IDX=21870&amp;hl=ENG">see the track</a></span></li>
+        <li><span class="tag t-session">Special session</span><span>"Recent Advances in Fuzzy Control System Design and Analysis", IEEE WCCI 2026, Maastricht, Netherlands</span></li>
+        <li><span class="tag t-issue">Special issue</span><span>"AI and Data Driven Control and Automation", Engineering Applications of Artificial Intelligence</span></li>
+        <li><span class="tag t-issue">Special issue</span><span>"Human-Centric Approaches for Safe Navigation of Intelligent Ground Vehicles", IFAC Control Engineering Practice</span></li>
+        <li><span class="tag t-conf">Conference</span><span>National Turkish control conference (TOK 2026), Ankara, Türkiye, 8–10 October 2026</span></li>
+      </ul>
+    </div>
 
-<h3>Past activities</h3>
-<p><b>2026</b></p>
-<ul>
-<li>Open Invited Track 3-160 on "Recent Advances in Fuzzy Model-Based Control" at the IFAC World Congress 2026, Busan, Republic of Korea, <a class="strong" href="https://www.ifac2026.org/fairOnline.do?selAction=single_page&amp;SYSTEM_IDX=210&amp;FAIRMENU_IDX=21870&amp;hl=ENG">see the track</a></li>
-<li>Special session on "Recent Advances in Fuzzy Control System Design and Analysis" at IEEE WCCI 2026, Maastricht, Netherlands</li>
-<li>Special issue on "AI &amp; Data Driven Control and Automation" in Engineering Applications of Artificial Intelligence</li>
-<li>Special issue on "Human-Centric Approaches for Safe Navigation of Intelligent Ground Vehicles" in IFAC Control Engineering Practice</li>
-<li>Organization of the national Turkish control conference (TOK 2026), Ankara, Türkiye, 8&ndash;10 October 2026</li>
-</ul>
-<p><b>2025</b></p>
-<ul>
-<li>Organization of FUZZ-IEEE 2025, Reims, France</li>
-<li>Organization of ICSTCC 2025, Cluj-Napoca, Romania</li>
-<li>Organization of J3C 2025, Padova, Italy</li>
-</ul>
-<p><b>Earlier</b></p>
-<ul>
-<li>Open Invited Track on "Recent Advances in Fuzzy Model-Based Control" at the IFAC World Congress, Yokohama, Japan, 9&ndash;14 July 2023</li>
-<li>Special session on "Recent Advances in Fuzzy Control System Design and Analysis" at FUZZ-IEEE 2021, Luxembourg, 11&ndash;14 July 2021</li>
-<li>Special session on "Recent Advances in Fuzzy Control System Design and Analysis" at IEEE WCCI 2020, Glasgow, UK, 19&ndash;24 July 2020</li>
-<li>Joint special session on "Fuzzy Systems for Control of Renewable Energy and Smart Grid" at IEEE WCCI 2020, Glasgow, UK, 19&ndash;24 July 2020, organized with the IEEE CIS Task Force on Fuzzy Systems in Renewable Energy and Smart Grid</li>
-</ul>
+    <div class="year">
+      <div class="y">2025</div>
+      <ul>
+        <li><span class="tag t-conf">Conference</span><span>FUZZ-IEEE 2025, Reims, France</span></li>
+        <li><span class="tag t-conf">Conference</span><span>ICSTCC 2025, Cluj-Napoca, Romania</span></li>
+        <li><span class="tag t-conf">Conference</span><span>J3C 2025, Padova, Italy</span></li>
+      </ul>
+    </div>
 
-<p class="footer">Last updated: November 2026. Contact: <a href="mailto:kumbasart@itu.edu.tr">Tufan Kumbasar</a></p>
+    <div class="year">
+      <div class="y">2023</div>
+      <ul>
+        <li><span class="tag t-track">Invited track</span><span>Open Invited Track "Recent Advances in Fuzzy Model-Based Control", IFAC World Congress, Yokohama, Japan, 9–14 July 2023</span></li>
+      </ul>
+    </div>
+
+    <div class="year">
+      <div class="y">2021</div>
+      <ul>
+        <li><span class="tag t-session">Special session</span><span>"Recent Advances in Fuzzy Control System Design and Analysis", FUZZ-IEEE 2021, Luxembourg, 11–14 July 2021</span></li>
+      </ul>
+    </div>
+
+    <div class="year">
+      <div class="y">2020</div>
+      <ul>
+        <li><span class="tag t-session">Special session</span><span>"Recent Advances in Fuzzy Control System Design and Analysis", IEEE WCCI 2020, Glasgow, UK, 19–24 July 2020</span></li>
+        <li><span class="tag t-session">Special session</span><span>Joint session "Fuzzy Systems for Control of Renewable Energy and Smart Grid", IEEE WCCI 2020, Glasgow, UK, with the IEEE CIS Task Force on Fuzzy Systems in Renewable Energy and Smart Grid</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>For questions about the Task Force, its sessions or membership, contact the Chair, <a href="https://akademi.itu.edu.tr/en/kumbasart/">Tufan Kumbasar</a>: <span class="e" data-u="kumbasart" data-d="itu.edu.tr"></span>.</p>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><a href="https://cis.ieee.org/">IEEE Computational Intelligence Society</a> · Fuzzy Systems Technical Committee</span>
+    <span>Last updated: November 2026</span>
+  </div>
+</footer>
+
+<script>
+const members = [
+  ["Miguel Angel Bernal Reza", "ITSON Universidad, Mexico", "miguel.bernal", "itson.edu.mx"],
+  ["Saso Blazic", "University of Ljubljana, Slovenia", "saso.blazic", "fe.uni-lj.si"],
+  ["Murali M. Bosukonda", "Indian Institute of Technology Kharagpur, India", "mohan", "ee.iitkgp.ac.in"],
+  ["Pedro Henrique Silva Coutinho", "Rio de Janeiro State University (UERJ), Brazil", "phcoutinho", "eng.uerj.br"],
+  ["Kevin Guelton", "CReSTIC, University of Reims Champagne-Ardenne, France", "kevin.guelton", "univ-reims.fr"],
+  ["Thierry Marie Guerra", "Université Polytechnique Hauts-de-France, France", "guerra", "univ-valenciennes.fr"],
+  ["Tufan Kumbasar", "Istanbul Technical University, Türkiye", "kumbasart", "itu.edu.tr"],
+  ["Hak-Keung Lam", "King's College London, UK", "hak-keung.lam", "kcl.ac.uk"],
+  ["Zsófia Lendek", "Technical University of Cluj-Napoca, Romania", "zsofia.lendek", "aut.utcluj.ro"],
+  ["Anh-Tu Nguyen", "Université Polytechnique Hauts-de-France, France", "Trananhtu.Nguyen", "uphf.fr"],
+  ["Reinaldo Martinez Palhares", "Federal University of Minas Gerais, Brazil", "rpalhares", "ufmg.br"],
+  ["Antonio Sala", "Universitat Politècnica de València, Spain", "asala", "upvnet.upv.es"],
+  ["Horst Schulte", "HTW Berlin, Germany", "Horst.Schulte", "HTW-Berlin.de"],
+  ["Jun Yoneyama", "Aoyama Gakuin University, Japan", "yoneyama", "ee.aoyama.ac.jp"]
+];
+const list = document.getElementById("member-list");
+members.forEach(([n, a, u, d]) => {
+  const div = document.createElement("div");
+  div.className = "member";
+  div.innerHTML = '<div class="n"></div><div class="a"></div><div class="e" data-u="' + u + '" data-d="' + d + '"></div>';
+  div.querySelector(".n").textContent = n;
+  div.querySelector(".a").textContent = a;
+  list.appendChild(div);
+});
+document.querySelectorAll(".e[data-u]").forEach(el => {
+  const addr = el.dataset.u + "@" + el.dataset.d;
+  const link = document.createElement("a");
+  link.href = "mailto:" + addr;
+  link.textContent = el.dataset.u + " [at] " + el.dataset.d;
+  el.appendChild(link);
+});
+const links = [...document.querySelectorAll("nav.menu a")];
+const onScroll = () => {
+  let current = links[0];
+  links.forEach(l => { const s = document.querySelector(l.getAttribute("href")); if (s && s.getBoundingClientRect().top < 120) current = l; });
+  links.forEach(l => l.classList.toggle("active", l === current));
+};
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+</script>
 </body>
 </html>
